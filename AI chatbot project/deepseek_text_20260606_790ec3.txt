@@ -1,0 +1,24 @@
+You: Hello
+Nexus: Hey there! 👋
+
+You: What is your name?
+Nexus: I'm Nexus! 🤖
+
+You: Tell me a joke
+Nexus: Why don't scientists trust atoms? Because they make up everything! 🔬
+
+You: My name is Alex
+Nexus: Nice to meet you, Alex! 🎉
+
+You: How are you?
+Nexus: I'm operating at peak efficiency! 🚀
+
+You: Time
+Nexus: 📅 Current date: December 15, 2024
+       ⏰ Current time: 02:30 PM
+
+You: Help
+[Displays full command menu]
+
+You: bye
+Nexus: Goodbye! Take care! 👋

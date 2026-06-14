@@ -1,0 +1,9 @@
+nexus-chatbot/
+│
+├── nexus.py              # Main chatbot engine
+├── responses.py          # Response database and rules
+├── utils.py              # UI utilities (colors, animations)
+├── requirements.txt      # Dependencies
+├── README.md             # Documentation
+└── assets/
+    └── ascii_avatar.txt  # Chatbot ASCII art

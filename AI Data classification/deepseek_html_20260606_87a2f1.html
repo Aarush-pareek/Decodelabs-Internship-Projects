@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Dashboard | NexusClassify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">⚡ NexusClassify</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/results">Results</a>
+            <a href="/predict">Predict</a>
+        </div>
+    </nav>
+
+    <div style="padding: 2rem;">
+        <h1>📊 Dataset Dashboard</h1>
+        <div class="glass-card" style="margin-top: 2rem;">
+            <h2>Upload CSV Dataset</h2>
+            <input type="file" id="datasetFile" accept=".csv">
+            <button class="btn-neon" id="uploadBtn" style="margin-top: 1rem;">Upload & Analyze</button>
+        </div>
+
+        <div id="previewArea" style="display:none; margin-top: 2rem;">
+            <div class="glass-card">
+                <h2>Dataset Preview</h2>
+                <div style="overflow-x: auto;">
+                    <table class="data-table" id="previewTable">
+                        <thead><tr id="tableHeader"></tr></thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="glass-card" style="margin-top: 2rem;">
+                <h2>Dataset Statistics</h2>
+                <div id="stats"></div>
+            </div>
+
+            <div class="glass-card" style="margin-top: 2rem;">
+                <h2>Train Model</h2>
+                <label>Select Target Column:</label>
+                <select id="targetColumn"></select>
+                <label>Choose Algorithm:</label>
+                <select id="algorithm">
+                    <option>Logistic Regression</option>
+                    <option>Decision Tree</option>
+                    <option>Random Forest</option>
+                </select>
+                <button class="btn-neon" id="trainBtn">🚀 Train Model</button>
+                <div id="trainingStatus"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentColumns = [];
+
+        document.getElementById('uploadBtn').onclick = async () => {
+            const file = document.getElementById('datasetFile').files[0];
+            if (!file) return alert('Select a CSV file');
+            const formData = new FormData();
+            formData.append('file', file);
+            const res = await fetch('/upload', { method: 'POST', body: formData });
+            const data = await res.json();
+            if (data.success) {
+                document.getElementById('previewArea').style.display = 'block';
+                // Render preview table
+                const preview = data.preview.slice(0, 10);
+                const cols = Object.keys(preview[0]);
+                currentColumns = cols;
+                const headerRow = document.getElementById('tableHeader');
+                headerRow.innerHTML = cols.map(c => `<th>${c}</th>`).join('');
+                const tbody = document.getElementById('tableBody');
+                tbody.innerHTML = preview.map(row => `
+                    <tr>${cols.map(c => `<td>${row[c]}</td>`).join('')}</tr>
+                `).join('');
+                // Populate target column select
+                const targetSelect = document.getElementById('targetColumn');
+                targetSelect.innerHTML = cols.map(c => `<option value="${c}">${c}</option>`).join('');
+                // Show stats summary
+                document.getElementById('stats').innerHTML = `
+                    <p>Shape: ${data.shape[0]} rows, ${data.shape[1]} columns</p>
+                    <p>Missing values: ${JSON.stringify(data.summary.missing_values)}</p>
+                `;
+            } else {
+                alert('Upload error: ' + data.error);
+            }
+        };
+
+        document.getElementById('trainBtn').onclick = async () => {
+            const algorithm = document.getElementById('algorithm').value;
+            const targetColumn = document.getElementById('targetColumn').value;
+            document.getElementById('trainingStatus').innerHTML = '<div class="spinner"></div><p>Training in progress...</p>';
+            const res = await fetch('/train', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ algorithm, target_column: targetColumn })
+            });
+            const data = await res.json();
+            if (data.success) {
+                // Store results in sessionStorage to show on results page
+                sessionStorage.setItem('lastResults', JSON.stringify(data));
+                window.location.href = '/results';
+            } else {
+                document.getElementById('trainingStatus').innerHTML = `<p style="color:red;">Error: ${data.error}</p>`;
+            }
+        };
+    </script>
+</body>
+</html>

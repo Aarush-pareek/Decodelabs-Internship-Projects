@@ -1,0 +1,4 @@
+# No external ML/AI APIs - pure Python
+colorama==0.4.6
+art==6.1
+pyfiglet==0.8.post1

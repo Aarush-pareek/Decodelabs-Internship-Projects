@@ -1,0 +1,33 @@
+============================================================
+    __   __  _______  ______   _______   __      
+   /\ \ /\ \/\  __ \/\  == \ /\  __ \ /\ \     
+   \ \ \\ \ \ \ \/\ \ \  _-/\ \ \/\ \\ \ \____ 
+    \ \_\\ \_\ \_____\ \_\   \ \_____\\ \_____\
+     \/_/ \/_/\/_____/\/_/    \/_____/ \/_____/
+============================================================
+🤖 Your Intelligent Rule-Based Assistant
+Session Started: 2024-12-15 14:30:22
+============================================================
+
+✨ Welcome to Nexus! I'm your intelligent rule-based assistant. ✨
+Type 'Help' anytime to see my capabilities, or 'bye' to exit.
+
+You › Hello
+
+Processing...
+Nexus › Hey there! 👋
+
+You › Tell me a joke
+
+Processing...
+Nexus › Why don't scientists trust atoms? Because they make up everything! 🔬
+
+You › bye
+
+Processing...
+Nexus › Goodbye! Take care! 👋
+
+============================================================
+📊 Session Stats: 3 exchanges
+💡 Tip: Run again to start a new conversation!
+============================================================

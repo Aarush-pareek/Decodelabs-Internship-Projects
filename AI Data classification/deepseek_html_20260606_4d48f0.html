@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Classification System | Nexus AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">⚡ NexusClassify</div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/results">Results</a>
+            <a href="/predict">Predict</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>AI Data Classification<br>System</h1>
+            <p>Supervised machine learning at your fingertips.<br>
+            Upload CSV, train models, evaluate, and predict — all in one glassmorphic dashboard.</p>
+            <button class="btn-neon" onclick="location.href='/dashboard'">✨ Start Classification</button>
+        </div>
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/ai_illustration.svg') }}" alt="AI Illustration" width="400">
+        </div>
+    </div>
+
+    <script>
+        // Simple redirect for start button
+    </script>
+</body>
+</html>
