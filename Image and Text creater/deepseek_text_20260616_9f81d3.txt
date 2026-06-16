@@ -1,0 +1,30 @@
+
+## Algorithms & AI Models
+### OCR Pipeline
+1. Convert to grayscale.
+2. Apply Gaussian blur for noise removal.
+3. Adaptive thresholding to binarize the image.
+4. Tesseract OCR with `--psm 6` (single uniform block of text).
+5. Confidence calculated as average word confidence from Tesseract.
+
+### Object Detection Pipeline
+1. Resize image to 300×300.
+2. Create blob using `cv2.dnn.blobFromImage`.
+3. Forward pass through MobileNet SSD (Caffe model).
+4. Filter detections with confidence > 0.5.
+5. Draw bounding boxes and labels.
+
+### Confidence Scoring
+- OCR: extracted from Tesseract’s `conf` attribute, averaged per word.
+- Object Detection: confidence from the SSD output tensor.
+
+## Database Schema (SQLite)
+```sql
+CREATE TABLE history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT CHECK(type IN ('ocr','object_detection')),
+    image_name TEXT,
+    result TEXT,          -- JSON: extracted text / detected objects
+    confidence REAL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

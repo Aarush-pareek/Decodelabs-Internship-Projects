@@ -1,0 +1,1 @@
+score = (interest_match × 0.6) + (category_match × 0.3) + (rating_factor × 0.1)

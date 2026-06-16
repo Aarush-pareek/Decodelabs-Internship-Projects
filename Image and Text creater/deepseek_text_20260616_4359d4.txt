@@ -1,0 +1,41 @@
+ai-vision-suite/
+├── backend/
+│   ├── ai/
+│   │   ├── __init__.py
+│   │   ├── ocr_engine.py
+│   │   ├── object_detection_engine.py
+│   │   └── preprocessing.py
+│   ├── models/
+│   │   └── download_models.sh
+│   ├── database.py
+│   ├── main.py
+│   ├── requirements.txt
+│   └── Dockerfile
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── globals.css
+│   │   │   ├── layout.tsx
+│   │   │   ├── page.tsx          (Landing)
+│   │   │   └── dashboard/
+│   │   │       ├── layout.tsx    (Sidebar)
+│   │   │       ├── ocr/page.tsx
+│   │   │       ├── object-detection/page.tsx
+│   │   │       ├── analytics/page.tsx
+│   │   │       └── history/page.tsx
+│   │   ├── components/
+│   │   │   └── ui/ (ShadCN components – automatically generated)
+│   │   ├── lib/
+│   │   │   └── utils.ts
+│   │   └── hooks/
+│   │       └── use-api.ts
+│   ├── tailwind.config.ts
+│   ├── postcss.config.js
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── next.config.js
+│   └── Dockerfile
+├── docker-compose.yml
+├── README.md
+└── .gitignore

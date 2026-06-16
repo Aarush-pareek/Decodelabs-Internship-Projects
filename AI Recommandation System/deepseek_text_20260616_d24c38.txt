@@ -1,0 +1,5 @@
+
+---
+
+This complete project demonstrates pattern matching, similarity scoring, explainable AI, and a polished portfolio-worthy UI.  
+Run the backend first, then the frontend, and the system is ready to use.

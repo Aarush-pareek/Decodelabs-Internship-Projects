@@ -1,0 +1,42 @@
+ai-recommendation-system/
+├── frontend/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── assets/
+│   │   │   └── (images if any)
+│   │   ├── components/
+│   │   │   ├── Layout.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── RecommendationCard.jsx
+│   │   │   ├── InterestChip.jsx
+│   │   │   ├── StatCard.jsx
+│   │   │   ├── SearchBar.jsx
+│   │   │   ├── FilterSortControls.jsx
+│   │   │   └── ChartComponents.jsx
+│   │   ├── pages/
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── RecommendationEnginePage.jsx
+│   │   │   ├── AnalyticsDashboardPage.jsx
+│   │   │   └── AboutPage.jsx
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   ├── context/
+│   │   │   └── ThemeContext.jsx
+│   │   ├── App.jsx
+│   │   ├── index.jsx
+│   │   └── index.css
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   ├── package.json
+│   └── vite.config.js
+│
+├── backend/
+│   ├── app.py
+│   ├── recommendation_engine.py
+│   ├── dataset/
+│   │   └── items.json
+│   └── requirements.txt
+│
+├── README.md
+└── .gitignore
