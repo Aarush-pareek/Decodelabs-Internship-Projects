@@ -1,0 +1,14 @@
+[theme]
+base = "light"
+primaryColor = "#1d5fb8"
+backgroundColor = "#fcfcfb"
+secondaryBackgroundColor = "#f3f2ef"
+textColor = "#0b0b0b"
+font = "sans serif"
+
+[server]
+# Uploaded CSV files larger than this (in MB) are rejected.
+maxUploadSize = 10
+
+[browser]
+gatherUsageStats = false

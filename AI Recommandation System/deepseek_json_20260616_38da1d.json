@@ -1,6 +1,0 @@
-[
-  { "name": "Python for AI", "category": "Programming", "tags": ["Python","AI","Machine Learning"], "rating": 4.8 },
-  { "name": "Deep Learning Specialization", "category": "AI", "tags": ["Deep Learning","AI","Neural Networks"], "rating": 4.9 },
-  { "name": "The Lean Startup", "category": "Business", "tags": ["Startup","Business","Entrepreneurship"], "rating": 4.3 },
-  ...
-]

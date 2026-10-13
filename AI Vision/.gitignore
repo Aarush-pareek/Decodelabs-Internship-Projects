@@ -1,0 +1,28 @@
+# Secrets / local configuration
+.env
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Generated output (keep the folder, ignore its contents)
+outputs/*
+!outputs/.gitkeep
+
+# Optional model files for a future object-detection tab
+models/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
